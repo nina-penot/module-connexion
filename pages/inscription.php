@@ -1,5 +1,25 @@
 <?php
-//code
+//création base de donnée
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=moduleconnexion", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "Connexion réussie !";
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+
+$sql = "SELECT * from utilisateurs";
+$stmt = $pdo->query($sql);
+
+$table_test = [];
+
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $table_test[] = $row['login'];
+    $table_test[] = $row['prenom'];
+    $table_test[] = $row['nom'];
+    $table_test[] = $row['password'];
+}
+print_r($table_test);
 ?>
 
 <!DOCTYPE html>
