@@ -1,0 +1,3 @@
+<?php
+//Doit dire "Bonjour, username!"
+//Peut changer qqchose?...
