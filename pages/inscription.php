@@ -17,26 +17,29 @@
 <!-- BODY -->
 
 <body>
-    <form action="" method="post">
-        <div>S'inscrire</div>
-        <div>Login</div>
-        <input name="login" type="text" placeholder="Nom utilisateur...">
+    <?php include '../assets/components/header_forms.php' ?>
+    <main class="body_main">
+        <form class="form_block" action="" method="post">
+            <div class="form_title">S'inscrire</div>
+            <div>Login</div>
+            <input name="login" type="text" placeholder="Nom utilisateur...">
 
-        <div>
-            <div>
-                <div>Prénom</div>
-                <input name="prenom" type="text" placeholder="Votre prénom...">
+            <div class="form_names">
+                <div>
+                    <div>Prénom</div>
+                    <input name="prenom" type="text" placeholder="Votre prénom...">
+                </div>
+                <div>
+                    <div>Nom</div>
+                    <input name="nom" type="text" placeholder="Votre nom...">
+                </div>
             </div>
-            <div>
-                <div>Nom</div>
-                <input name="nom" type="text" placeholder="Votre nom...">
-            </div>
-        </div>
 
-        <div>Mot de passe</div>
-        <input name="pass" type="text" placeholder="Mot de passe...">
-        <input name="submit" type="submit" value="S'INSCRIRE">
-    </form>
+            <div>Mot de passe</div>
+            <input name="pass" type="password" placeholder="Mot de passe...">
+            <input name="submit" type="submit" value="S'INSCRIRE">
+        </form>
+    </main>
 </body>
 
 </html>

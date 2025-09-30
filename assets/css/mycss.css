@@ -4,20 +4,6 @@ body {
     margin: 5px;
 }
 
-.log_btn {
-    background-color: blue;
-    padding: 10px;
-    width: 80%;
-    border-radius: 10px;
-    border: black solid 2px;
-    margin: 5px;
-}
-
-.log_btn:active {
-    border: white solid 2px;
-    background-color: aqua;
-}
-
 /* HEADER ------------------------------------------------------------*/
 
 .header_main {
@@ -33,6 +19,8 @@ body {
     width: 80%;
     margin: 10px;
     font-size: 50px;
+    text-decoration: none;
+    color: black;
 }
 
 .header_log_block {
@@ -43,6 +31,36 @@ body {
     justify-items: center;
     align-items: center;
     flex-direction: column;
+}
+
+.header_log_btn {
+    background-color: blue;
+    padding: 10px;
+    width: 80%;
+    border-radius: 10px;
+    border: black solid 2px;
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.header_log_btn:active {
+    border: white solid 2px;
+    background-color: aqua;
+}
+
+.header_forms_home {
+    background-color: rgb(255, 98, 71);
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    align-content: center;
+}
+
+.header_forms_home:hover {
+    background-color: pink;
 }
 
 /* navbar */
@@ -68,10 +86,10 @@ body {
 /* header: responsive */
 @media (max-width: 600px) {
     .header_log_block {
-        width: 30%;
+        width: 130px;
     }
 
-    .log_btn {
+    .header_log_btn {
         padding: 3px;
         width: 80%;
         border-radius: 10px;
@@ -88,6 +106,30 @@ body {
     overflow: auto;
 }
 
+.form_block {
+    background-color: aqua;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_title {
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    width: 90%;
+    height: 30px;
+    align-self: center;
+    align-content: center;
+}
+
+.form_names {
+    display: flex;
+    float: left;
+}
+
 /* FOOTER ------------------------------------------------------------*/
 
 .footer_main {
@@ -98,9 +140,9 @@ body {
 }
 
 .footer_grid {
-    margin: 10px;
-    display: grid;
-    grid-template-columns: 40% 40% 20%;
+    display: flex;
+    float: left;
+    width: 100%;
 }
 
 .footer_grid_cell {
@@ -109,4 +151,49 @@ body {
     padding: 10px;
     display: flex;
     flex-direction: column;
+    width: 50%;
+}
+
+.footer_log_block {
+    background-color: rgb(238, 83, 199);
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    min-width: 200px;
+}
+
+.footer_log_btn {
+    background-color: blue;
+    padding: 10px;
+    width: 80%;
+    border-radius: 10px;
+    border: black solid 2px;
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.footer_log_btn:active {
+    border: white solid 2px;
+    background-color: aqua;
+}
+
+@media (max-width: 600px) {
+    .footer_main {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer_grid {
+        margin: 0;
+        display: inline-block;
+        width: 95%;
+    }
+
+    .footer_grid_cell,
+    .footer_log_block {
+        width: 90%;
+    }
 }

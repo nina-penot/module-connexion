@@ -28,11 +28,11 @@ if ($logged == true) {
             <div>Menu2</div>
             <div>Option</div>
         </div>
-        <div class="footer_grid_cell">
+        <div class="footer_log_block">
             <div>CONTACT</div>
             <button>✉️</button>
-            <button class="log_btn"><?= $inscription ?></button>
-            <button class="log_btn"><?= $connexion ?></button>
+            <a href="./inscription.php" class="footer_log_btn"><?= $inscription ?></a>
+            <a href="./connexion.php" class="footer_log_btn"><?= $connexion ?></a>
         </div>
     </div>
 </footer>

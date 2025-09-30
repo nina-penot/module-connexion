@@ -20,10 +20,10 @@ if ($logged == true) {
 
 <header>
     <div class="header_main">
-        <div class="header_title">HEADER</div>
+        <a href="./index.php" class="header_title">HEADER</a>
         <div class="header_log_block">
-            <button class="log_btn"><?= $inscription ?></button>
-            <button class="log_btn"><?= $connexion ?></button>
+            <a href="./inscription.php" class="header_log_btn"><?= $inscription ?></a>
+            <a href="./connexion.php" class="header_log_btn"><?= $connexion ?></a>
         </div>
     </div>
     <nav class="navbar_main">

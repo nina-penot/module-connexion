@@ -17,14 +17,17 @@
 <!-- BODY -->
 
 <body>
-    <form action="" method="post">
-        <div>Se connecter</div>
-        <div>Login</div>
-        <input name="login" type="text" placeholder="Nom utilisateur...">
-        <div>Mot de passe</div>
-        <input name="pass" type="text" placeholder="Mot de passe...">
-        <input name="submit" type="submit" value="SE CONNECTER">
-    </form>
+    <?php include '../assets/components/header_forms.php' ?>
+    <main class="body_main">
+        <form class="form_block" action="" method="post">
+            <div class="form_title">Se connecter</div>
+            <div>Login</div>
+            <input name="login" type="text" placeholder="Nom utilisateur...">
+            <div>Mot de passe</div>
+            <input name="pass" type="text" placeholder="Mot de passe...">
+            <input name="submit" type="submit" value="SE CONNECTER">
+        </form>
+    </main>
 </body>
 
 </html>
