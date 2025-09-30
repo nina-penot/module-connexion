@@ -11,9 +11,13 @@ $logged = false;
 if ($logged == true) {
     $inscription = $inscri_on;
     $connexion = $log_on;
+    $inscri_link = "./profil.php";
+    $log_link = "./index.php";
 } else {
     $inscription = $inscri_off;
     $connexion = $log_off;
+    $inscri_link = "./inscription.php";
+    $log_link = "./connexion.php";
 }
 
 ?>
@@ -22,8 +26,8 @@ if ($logged == true) {
     <div class="header_main">
         <a href="./index.php" class="header_title">HEADER</a>
         <div class="header_log_block">
-            <a href="./inscription.php" class="header_log_btn"><?= $inscription ?></a>
-            <a href="./connexion.php" class="header_log_btn"><?= $connexion ?></a>
+            <a href="<?= $inscri_link ?>" class="header_log_btn"><?= $inscription ?></a>
+            <a href="<?= $log_link ?>" class="header_log_btn"><?= $connexion ?></a>
         </div>
     </div>
     <nav class="navbar_main">
