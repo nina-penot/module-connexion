@@ -6,9 +6,7 @@ $inscri_on = "PROFIL";
 $log_off = "SE CONNECTER";
 $log_on = "SE DECONNECTER";
 
-$logged = false;
-
-if ($logged == true) {
+if (isset($_SESSION["loggedin"])) {
     $inscription = $inscri_on;
     $connexion = $log_on;
     $inscri_link = "./profil.php";

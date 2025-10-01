@@ -1,5 +1,26 @@
 <?php
-//code
+require "../api/library.php";
+
+//Traitement du formulaire
+
+//Check si user existe, puis si mdp correct
+if (isset($_POST["submit"])) {
+    if (is_usernameTaken($php_database, $_POST[$login])) {
+        $this_pass = getPass($php_database, $_POST[$login]);
+        if (is_passCorrect($_POST[$pass], $this_pass)) {
+            easyCookie("loggedin", true);
+            if ($_POST[$login] == "admin") {
+                header("Location: ./admin.php");
+            } else {
+                header("Location: ./profil.php");
+            }
+        } else {
+            $error = "Wrong password.";
+        }
+    } else {
+        $error = "User not found.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +49,7 @@
                 </div>
                 <div class="form_elem">
                     <div>Mot de passe</div>
-                    <input name="pass" type="text" placeholder="Mot de passe...">
+                    <input name="pass" type="password" placeholder="Mot de passe...">
                 </div>
                 <input class="submit_btn" name="submit" type="submit" value="SE CONNECTER">
             </form>
@@ -37,3 +58,9 @@
 </body>
 
 </html>
+
+<?php
+if (isset($error)) {
+    echo $error;
+}
+?>

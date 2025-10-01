@@ -1,25 +1,37 @@
 <?php
-//création base de donnée
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=moduleconnexion", "root", "");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Connexion réussie !";
-} catch (PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
+require "../api/library.php";
+
+//Traitement du formulaire
+session_start();
+
+if (isset($_POST["submit"])) {
+    //garde les infos dans session
+    $_SESSION[$inscription] = save_in_Session($_POST[$login], $_POST[$prenom], $_POST[$nom], $_POST[$pass]);
+    //Si utilisateur existe
+    if (is_userExists($php_database, $_SESSION[$inscription])) {
+        $userexists = "This user already exists!";
+        $nom_val = "";
+        $prenom_val = "";
+        //Si seul le login est pris
+    } else if (is_usernameTaken($php_database, $_SESSION[$inscription][$login])) {
+        $usertaken = "This username: '" . $_SESSION[$inscription][$login] . "', is already taken. Try another.";
+        $nom_val = $_POST[$nom];
+        $prenom_val = $_POST[$prenom];
+        //Si nouveau utilisateur
+    } else {
+        $nom_val = "";
+        $prenom_val = "";
+        $my_database = $pdo->query($sql_insert);
+        $sql_insert = "INSERT INTO `utilisateurs` (`login`, `prenom`, `nom`, `password`) VALUES (" . $_SESSION[$login] . "," . $_SESSION[$prenom] . "," . $_SESSION[$nom] . "," . $_SESSION[$pass] . ";";
+        header("Location: ./connexion.php");
+    }
+} else {
+    $nom_val = "";
+    $prenom_val = "";
 }
 
-$sql = "SELECT * from utilisateurs";
-$stmt = $pdo->query($sql);
+//INSERT INTO `utilisateurs` (`login`, `prenom`, `nom`, `password`) VALUES ('Dummy', 'Dumdum', 'Doo', 'blahblah');
 
-$table_test = [];
-
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $table_test[] = $row['login'];
-    $table_test[] = $row['prenom'];
-    $table_test[] = $row['nom'];
-    $table_test[] = $row['password'];
-}
-print_r($table_test);
 ?>
 
 <!DOCTYPE html>
@@ -48,28 +60,36 @@ print_r($table_test);
 
                 <div class="form_elem">
                     <div>Login</div>
-                    <input name="login" type="text" placeholder="Nom utilisateur...">
+                    <input name="login" type="text" placeholder="Nom utilisateur..." required>
                 </div>
                 <!-- Names float -->
                 <div class="form_names">
                     <div class="form_names_elem">
                         <div>Prénom</div>
-                        <input name="prenom" type="text" placeholder="Votre prénom...">
+                        <input name="prenom" type="text" placeholder="Votre prénom..." required value="<?= $prenom_val ?>">
                     </div>
                     <div class="form_names_elem">
                         <div>Nom</div>
-                        <input name="nom" type="text" placeholder="Votre nom...">
+                        <input name="nom" type="text" placeholder="Votre nom..." required value="<?= $nom_val ?>">
                     </div>
                 </div>
                 <!-- End float, input -->
                 <div class="form_elem">
                     <div>Mot de passe</div>
-                    <input name="pass" type="password" placeholder="Mot de passe...">
+                    <input name="pass" type="password" placeholder="Mot de passe..." required>
                 </div>
                 <input class="submit_btn" name="submit" type="submit" value="S'INSCRIRE">
 
             </form>
         </div>
+
+        <?php
+        if (isset($userexists)) {
+            echo $userexists;
+        } else if (isset($usertaken)) {
+            echo $usertaken;
+        }
+        ?>
 
     </main>
 </body>

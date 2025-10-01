@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -12,7 +18,7 @@
 <body>
     <?php include '../assets/components/header.php' ?>
     <main class="body_main">
-        <div>BIENVENUE</div>
+        <div>BONJOUR</div>
         <p>Bienvenue sur mon site.</p>
     </main>
     <?php include '../assets/components/footer.php' ?>
