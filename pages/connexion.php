@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "../api/library.php";
 
 //Traitement du formulaire
@@ -8,7 +9,8 @@ if (isset($_POST["submit"])) {
     if (is_usernameTaken($php_database, $_POST[$login])) {
         $this_pass = getPass($php_database, $_POST[$login]);
         if (is_passCorrect($_POST[$pass], $this_pass)) {
-            easyCookie("loggedin", true);
+            $_SESSION["loggedin"] = true;
+            $_SESSION["user"] = getCorrectName($php_database, $_POST[$login]);
             if ($_POST[$login] == "admin") {
                 header("Location: ./admin.php");
             } else {
@@ -45,11 +47,11 @@ if (isset($_POST["submit"])) {
                 <div class="form_title">Se connecter</div>
                 <div class="form_elem">
                     <div>Login</div>
-                    <input name="login" type="text" placeholder="Nom utilisateur...">
+                    <input name="login" type="text" placeholder="Nom utilisateur..." required>
                 </div>
                 <div class="form_elem">
                     <div>Mot de passe</div>
-                    <input name="pass" type="password" placeholder="Mot de passe...">
+                    <input name="pass" type="password" placeholder="Mot de passe..." required>
                 </div>
                 <input class="submit_btn" name="submit" type="submit" value="SE CONNECTER">
             </form>

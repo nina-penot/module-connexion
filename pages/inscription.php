@@ -21,8 +21,8 @@ if (isset($_POST["submit"])) {
     } else {
         $nom_val = "";
         $prenom_val = "";
+        $sql_insert = "INSERT INTO utilisateurs (login, prenom, nom, password) VALUES ('" . $_POST[$login] . "', '" . $_POST[$prenom] . "', '" . $_POST[$nom] . "', '" . $_POST[$pass] . "')";
         $my_database = $pdo->query($sql_insert);
-        $sql_insert = "INSERT INTO `utilisateurs` (`login`, `prenom`, `nom`, `password`) VALUES (" . $_SESSION[$login] . "," . $_SESSION[$prenom] . "," . $_SESSION[$nom] . "," . $_SESSION[$pass] . ";";
         header("Location: ./connexion.php");
     }
 } else {

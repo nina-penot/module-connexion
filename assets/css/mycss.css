@@ -40,10 +40,14 @@ body {
     flex-direction: column;
 }
 
+.header_log_form {
+    width: 80%;
+}
+
 .header_log_btn {
     background-color: blue;
     padding: 10px;
-    width: 80%;
+    width: 100%;
     border-radius: 10px;
     border: black solid 2px;
     margin: 5px;
@@ -107,6 +111,7 @@ body {
 
 /* BODY ------------------------------------------------------------*/
 
+/* index */
 .body_main {
     display: inline-block;
     margin: 10px 0 5px 0;
@@ -114,6 +119,7 @@ body {
     width: 100%;
 }
 
+/* formulaires connexion */
 .form_main {
     width: 100%;
     display: flex;
@@ -171,6 +177,46 @@ body {
     height: 30px;
 }
 
+/* formulaires de changement de données */
+
+.profil {
+    display: flex;
+    float: left;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.profil_infos {
+    width: 40%;
+    background-color: yellow;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.profil_titres {
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+}
+
+.form_change_main {
+    background-color: aqua;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    gap: 10px;
+}
+
+.form_change_floatnp {
+    display: flex;
+    float: left;
+    flex-direction: unset;
+    justify-content: space-between;
+}
+
 /* FOOTER ------------------------------------------------------------*/
 
 .footer_main {
@@ -203,6 +249,10 @@ body {
     flex-direction: column;
     width: 200px;
     min-width: 200px;
+}
+
+.footer_log_form {
+    width: 100%;
 }
 
 .footer_log_btn {

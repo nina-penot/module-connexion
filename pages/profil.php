@@ -3,7 +3,13 @@
 session_start();
 //Doit dire "Bonjour, username!"
 //Peut changer le mot de passe, nom, prenom, username
-$username = "";
+if (isset($_SESSION["user"])) {
+    $username = $_SESSION["user"];
+} else {
+    $username = "Vous n'êtes pas connécté correctement, veuillez vous connecter.";
+    header("Location: ./index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +24,8 @@ $username = "";
 <body>
     <?php include '../assets/components/header.php' ?>
     <main class="body_main">
-        <div>BIENVENUE, <?= $username; ?></div>
+        <div>BIENVENUE, <?= $username; ?> !</div>
+        <?php include '../assets/components/info_change.php' ?>
     </main>
     <?php include '../assets/components/footer.php' ?>
 </body>

@@ -1,5 +1,6 @@
 <?php
 
+if (session_status() === PHP_SESSION_NONE) session_start();
 $inscri_off = "S'INSCRIRE";
 $inscri_on = "PROFIL";
 
@@ -9,8 +10,21 @@ $log_on = "SE DECONNECTER";
 if (isset($_SESSION["loggedin"])) {
     $inscription = $inscri_on;
     $connexion = $log_on;
-    $inscri_link = "./profil.php";
+    if (isset($_SESSION["user"])) {
+        if ($_SESSION["user"] == "admin") {
+            $inscri_link = "./admin.php";
+        } else {
+            $inscri_link = "./profil.php";
+        }
+    }
     $log_link = "./index.php";
+    if (isset($_GET["btn_bottom"])) {
+        session_destroy();
+        $inscription = $inscri_off;
+        $connexion = $log_off;
+        $inscri_link = "./inscription.php";
+        $log_link = "./connexion.php";
+    }
 } else {
     $inscription = $inscri_off;
     $connexion = $log_off;
@@ -24,8 +38,14 @@ if (isset($_SESSION["loggedin"])) {
     <div class="header_main">
         <a href="./index.php" class="header_title">HEADER</a>
         <div class="header_log_block">
-            <a href="<?= $inscri_link ?>" class="header_log_btn"><?= $inscription ?></a>
-            <a href="<?= $log_link ?>" class="header_log_btn"><?= $connexion ?></a>
+            <form class="header_log_form" action="<?= $inscri_link ?>" method="get">
+                <button class="header_log_btn" name="btn_top"><?= $inscription ?></button>
+            </form>
+
+            <form class="header_log_form" action="<?= $log_link ?>" method="get">
+                <button class="header_log_btn" name="btn_bottom"><?= $connexion ?></button>
+            </form>
+
         </div>
     </div>
     <nav class="navbar_main">

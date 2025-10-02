@@ -37,6 +37,19 @@ function getDatabase($database)
     return $table_test;
 }
 
+//Fabrique une table de données en html
+function makeHTMLtable($database)
+{
+    while ($row = $database->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . $row['login'] . "</td>";
+        echo "<td>" . $row['prenom'] . "</td>";
+        echo "<td>" . $row['nom'] . "</td>";
+        echo "<td>" . $row['password'] . "</td>";
+        echo "</tr>";
+    }
+}
+
 //sauvegarde les données dans une session
 function save_in_Session($user_login, $user_prenom, $user_nom, $user_pass)
 {
@@ -85,6 +98,17 @@ function is_usernameTaken($database, $username)
     return false;
 }
 
+//Existe seulement pour être sûr que la casse soit correcte lorsque
+//l'user se connecte
+function getCorrectName($database, $name)
+{
+    foreach ($database as $users) {
+        if (strtolower($users["login"]) == strtolower($name)) {
+            return $users["login"];
+        }
+    }
+}
+
 //Prend le mdp de l'user
 function getPass($database, $username)
 {
@@ -130,3 +154,15 @@ function killCookie($cookie)
 
 //tableau de la base en php
 $php_database = getDatabase($my_database);
+
+//Vérifie si connecté
+
+//Garde en mémoire la connection
+
+//Change nom login
+
+//Change prenom
+
+//Change nom
+
+//Change mot de passe
