@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../api/library.php";
+require "../api/library.php";
 
 //Doit dire "Bonjour, admin!"
 //Peut changer mot de passe

@@ -34,7 +34,7 @@ if (isset($_SESSION["loggedin"])) {
 
 ?>
 
-<header>
+<header style="width: 100%;">
     <div class="header_main">
         <a href="./index.php" class="header_title">HEADER</a>
         <div class="header_log_block">
