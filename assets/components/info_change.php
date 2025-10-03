@@ -1,5 +1,6 @@
 <?php
 require_once "../api/library.php";
+require_once "../api/theming.php";
 //Formulaire de changement d'infos
 
 foreach ($php_database as $users) {
@@ -47,8 +48,8 @@ if (isset($_POST["submit"])) {
 ?>
 
 <div class="profil">
-    <div class="profil_infos">
-        <div class="profil_titres">Vos informations</div>
+    <div class="profil_infos <?= $color_main ?>">
+        <div class="profil_titres <?= $color_sec ?>">Vos informations</div>
         <table>
             <tr>
                 <td>Votre prénom :</td>
@@ -63,8 +64,8 @@ if (isset($_POST["submit"])) {
 
     <?php if ($_SESSION["user"] == "admin"): ?>
 
-        <form class="form_change_main" method="post">
-            <div>Changez vos informations</div>
+        <form class="form_change_main <?= $color_main ?>" method="post">
+            <div class="profil_titres <?= $color_sec ?>">Changez vos informations</div>
             <div>EN TANT QU'ADMIN, VOUS NE POUVEZ PAS CHANGER VOTER NOM.</div>
             <div>Mot de passe</div>
             <input type="password" name="pass">
@@ -73,8 +74,8 @@ if (isset($_POST["submit"])) {
 
     <?php else: ?>
 
-        <form class="form_change_main" method="post">
-            <div class="profil_titres">Changez vos informations</div>
+        <form class="form_change_main <?= $color_main ?>" method="post">
+            <div class="profil_titres <?= $color_sec ?>">Changez vos informations</div>
             <div>Changer de nom d'utilisateur</div>
             <input type="text" name="login" value="<?= $usr_login ?>">
             <div class="form_change_floatnp">

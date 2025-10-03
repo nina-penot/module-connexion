@@ -269,20 +269,17 @@ body {
 
 .profil_infos {
     width: 40%;
-    background-color: yellow;
     border-radius: 10px;
     padding: 10px;
 }
 
 .profil_titres {
-    background-color: white;
     border-radius: 5px;
     text-align: center;
     padding: 5px;
 }
 
 .form_change_main {
-    background-color: aqua;
     border-radius: 10px;
     padding: 10px;
     display: flex;

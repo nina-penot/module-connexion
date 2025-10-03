@@ -1,5 +1,6 @@
 <?php
 session_start();
+require "../api/theming.php";
 require "../api/library.php";
 
 //Doit dire "Bonjour, admin!"
@@ -18,9 +19,9 @@ $username = "";
     <title>Bienvenue sur SITE</title>
 </head>
 
-<body>
+<body class="<?= $color_back ?>">
     <?php include '../assets/components/header.php' ?>
-    <main class="body_main">
+    <main class="body_main <?= $color3 ?>">
         <div>BIENVENUE, <?= $username; ?></div>
         <!-- doit afficher le tableau de données ici -->
         <table>
