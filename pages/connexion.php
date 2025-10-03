@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "../api/library.php";
+require_once "../api/theming.php";
 
 //Traitement du formulaire
 
@@ -39,12 +40,12 @@ if (isset($_POST["submit"])) {
 
 <!-- BODY -->
 
-<body>
+<body class="<?= $color_back ?>">
     <?php include '../assets/components/header_forms.php' ?>
     <main class="body_main">
         <div class="form_main">
-            <form class="form_block" action="" method="post">
-                <div class="form_title">Se connecter</div>
+            <form class="form_block <?= $color_sec ?>" action="" method="post">
+                <div class="form_title <?= $color_main ?>">Se connecter</div>
                 <div class="form_elem">
                     <div>Login</div>
                     <input name="login" type="text" placeholder="Nom utilisateur..." required>

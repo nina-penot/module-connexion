@@ -1,4 +1,5 @@
 <?php
+require_once "../api/theming.php";
 
 if (session_status() === PHP_SESSION_NONE) session_start();
 $inscri_off = "S'INSCRIRE";
@@ -34,25 +35,25 @@ if (isset($_SESSION["loggedin"])) {
 
 ?>
 
-<footer class="footer_main">
+<footer class="footer_main <?= $color_main ?>">
     <div class="footer_grid">
-        <div class="footer_grid_cell">
+        <div class="footer_grid_cell <?= $color_sec ?>">
             <div>Menu1</div>
             <div>Option</div>
         </div>
-        <div class="footer_grid_cell">
+        <div class="footer_grid_cell <?= $color_sec ?>">
             <div>Menu2</div>
             <div>Option</div>
         </div>
-        <div class="footer_log_block">
+        <div class="footer_log_block <?= $color_sec ?>">
             <div>CONTACT</div>
-            <button>✉️</button>
+            <button class="<?= $color_main ?>">✉️</button>
             <form class="footer_log_form" action="<?= $inscri_link ?>" method="get">
-                <button class="footer_log_btn" name="btn_top"><?= $inscription ?></button>
+                <button class="footer_log_btn <?= $color3, " ", $hoverable ?>" name="btn_top"><?= $inscription ?></button>
             </form>
 
             <form class="footer_log_form" action="<?= $log_link ?>" method="get">
-                <button class="footer_log_btn" name="btn_bottom"><?= $connexion ?></button>
+                <button class="footer_log_btn <?= $color3, " ", $hoverable ?>" name="btn_bottom"><?= $connexion ?></button>
             </form>
         </div>
     </div>

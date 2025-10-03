@@ -1,8 +1,9 @@
 <?php
+session_start();
 require "../api/library.php";
+require_once "../api/theming.php";
 
 //Traitement du formulaire
-session_start();
 
 if (isset($_POST["submit"])) {
     //garde les infos dans session
@@ -48,14 +49,14 @@ if (isset($_POST["submit"])) {
 
 <!-- BODY -->
 
-<body>
+<body class="<?= $color_back ?>">
     <?php include '../assets/components/header_forms.php' ?>
     <main class="body_main">
 
         <div class="form_main">
-            <form class="form_block" action="" method="post">
+            <form class="form_block <?= $color_sec ?>" action="" method="post">
                 <!-- titre -->
-                <div class="form_title">S'inscrire</div>
+                <div class="form_title <?= $color_main ?>">S'inscrire</div>
                 <!-- inputs -->
 
                 <div class="form_elem">

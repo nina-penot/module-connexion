@@ -1,6 +1,9 @@
 <?php
-
 session_start();
+if (isset($_GET["theme"])) {
+    $_SESSION["theme"] = $_GET["theme"];
+}
+require_once "../api/theming.php";
 
 ?>
 
@@ -15,9 +18,9 @@ session_start();
     <title>Bienvenue sur SITE</title>
 </head>
 
-<body>
+<body class="<?= $color_back ?>">
     <?php include '../assets/components/header.php' ?>
-    <main class="body_main">
+    <main class="body_main <?= $color3 ?>">
         <div>BONJOUR</div>
         <p>Bienvenue sur mon site.</p>
     </main>

@@ -1,6 +1,9 @@
 <?php
-
 session_start();
+if (isset($_GET["theme"])) {
+    $_SESSION["theme"] = $_GET["theme"];
+}
+require_once "../api/theming.php";
 //Doit dire "Bonjour, username!"
 //Peut changer le mot de passe, nom, prenom, username
 if (isset($_SESSION["user"])) {
@@ -21,9 +24,9 @@ if (isset($_SESSION["user"])) {
     <title>Bienvenue sur SITE</title>
 </head>
 
-<body>
+<body class="<?= $color_back ?>">
     <?php include '../assets/components/header.php' ?>
-    <main class="body_main">
+    <main class="body_main <?= $color3 ?>">
         <div>BIENVENUE, <?= $username; ?> !</div>
         <?php include '../assets/components/info_change.php' ?>
     </main>

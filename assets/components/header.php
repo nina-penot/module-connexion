@@ -1,4 +1,5 @@
 <?php
+// require_once "../api/theming.php";
 
 if (session_status() === PHP_SESSION_NONE) session_start();
 $inscri_off = "S'INSCRIRE";
@@ -31,25 +32,33 @@ if (isset($_SESSION["loggedin"])) {
     $inscri_link = "./inscription.php";
     $log_link = "./connexion.php";
 }
-
 ?>
 
-<header style="width: 100%;">
-    <div class="header_main">
-        <a href="./index.php" class="header_title">HEADER</a>
-        <div class="header_log_block">
+<header class="header_main <?= $color_main ?>">
+
+    <div class="header_float">
+        <a href="./index.php" class="header_title <?= $color_sec ?>">HEADER</a>
+        <div class="header_log_block <?= $color_sec ?>">
             <form class="header_log_form" action="<?= $inscri_link ?>" method="get">
-                <button class="header_log_btn" name="btn_top"><?= $inscription ?></button>
+                <button class="header_log_btn <?= $color3, " ", $hoverable ?>" name="btn_top"><?= $inscription ?></button>
             </form>
 
             <form class="header_log_form" action="<?= $log_link ?>" method="get">
-                <button class="header_log_btn" name="btn_bottom"><?= $connexion ?></button>
+                <button class="header_log_btn <?= $color3, " ", $hoverable ?>" name="btn_bottom"><?= $connexion ?></button>
             </form>
-
+            <form class="select_theme" method="get">
+                <button type="submit" name="theme_submit">Changer de thème</button>
+                <select name="theme">
+                    <option value="mizu">Mizutsune</option>
+                    <option value="almudron">Almudron</option>
+                </select>
+            </form>
         </div>
     </div>
+
     <nav class="navbar_main">
-        <div class="navbar_elem">nav1</div>
-        <div class="navbar_elem">nav2</div>
+        <div class="navbar_elem <?= $color_sec, " ", $hoverable ?>">nav1</div>
+        <div class="navbar_elem <?= $color_sec, " ", $hoverable ?>">nav2</div>
     </nav>
+
 </header>
