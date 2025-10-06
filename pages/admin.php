@@ -6,7 +6,7 @@ require "../api/library.php";
 //Doit dire "Bonjour, admin!"
 //Peut changer mot de passe
 //Affiche le tableau de données
-$username = "";
+$username = "Admin";
 // print_r($_SESSION);
 ?>
 
@@ -22,20 +22,19 @@ $username = "";
 <body class="<?= $color_back ?>">
     <?php include '../assets/components/header.php' ?>
     <main class="body_main <?= $color3 ?>">
-        <div>BIENVENUE, <?= $username; ?></div>
+        <div>BIENVENUE, <?= $username; ?>.</div>
         <!-- doit afficher le tableau de données ici -->
-        <table>
-            <tbody></tbody>
+        <table class="table_main <?= $color_main ?>">
             <tr>
-                <th>Login</th>
-                <th>Prenom</th>
-                <th>Nom</th>
-                <th>Password</th>
+                <th class="table_col <?= $color_sec ?>">Login</th>
+                <th class="table_col <?= $color_sec ?>">Prenom</th>
+                <th class="table_col <?= $color_sec ?>">Nom</th>
+                <th class="table_col <?= $color_sec ?>">Password</th>
             </tr>
 
             <?php
             foreach ($php_database as $user) {
-                echo "<tr>";
+                echo '<tr class = "table_row">';
                 echo "<td>" . $user[$login] . "</td>";
                 echo "<td>" . $user[$prenom] . "</td>";
                 echo "<td>" . $user[$nom] . "</td>";
